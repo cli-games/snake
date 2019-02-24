@@ -20,10 +20,12 @@ class food:
         """ """
         self.char = char
         self.coordinates = coordinates
+        self.max_x = max_x
+        self.max_y = max_y
 
-    def regenerate():
+    def regenerate(self):
         """Regenerates the food coordinates"""
-        self.coordinates = [random.randint(0,self.max_x),random.randint(0,self.maxy)]
+        self.coordinates = [random.randint(0,self.max_x),random.randint(0,self.max_y)]
 
 
 def game_loop():
@@ -41,7 +43,7 @@ def game_loop():
     # Actual Game Loop
     while(True):  # TODO: Make game run while not esc pressed or game over
         main.refresh()
-        window.addch(a.coordinates[0], a.coordinates[1], a.char) 
+        main.addch(a.coordinates[0], a.coordinates[1], a.char) 
         a.regenerate()
         time.sleep(1)
 
